@@ -1,0 +1,46 @@
+<header class="table-primary" style="height: 70px; padding: 11px; font-size: 30px; color: #fff; background: #76b301;">
+    <i class="fas fa-bars" style="font-size: 25px"> </i>  
+    Invoice
+
+    <span class="close" (click)="close()">x</span>
+</header>
+ 
+
+<div style="padding: 15px;" *ngIf="data.Invoices.length>0">
+     
+    <h4 style="color: #76b301;">Summery</h4>
+    <table class="table table-hover" >
+        <thead>
+                <tr  style="background: #2a9fd7 !important"> 
+                  <th scope="col">No</th>
+                  <th scope="col">Product</th>
+                  <th scope="col">Quantity</th>
+                  <th scope="col">Unit Price</th>
+                  <th scope="col">Tax Amount</th>
+                  <th scope="col">Total</th>
+                   
+                </tr>
+              </thead>
+            <tbody>
+            <tr *ngFor="let invoice of data.Invoices " style="color:#000" class="invoiceRow">
+                <td>{{invoice.no}}</td>                    
+                <td>{{ invoice.product }}</td>
+                <td> {{ invoice.quantity }}</td>
+                <td>$ {{ invoice.unitPrice }}</td>
+                <td>$ {{ invoice.taxAmount | number : '1.2-2'}}</td>
+                <td>$ {{invoice.total | number : '1.2-2'}}</td>
+                
+            </tr>
+            </tbody>
+        </table>
+        <hr>
+        <div style="    float: right;        font-size: 20px;">
+          <span>Total : </span>
+          <span>$ {{data.total | number : '1.2-2'}}</span>
+        </div>
+        <hr style="clear: both;">
+        <button class="btn btn-primary pull-right" (click)="close()">Close</button>
+</div>
+<div style="padding: 15px;" *ngIf="data.Invoices.length==0">
+  Please select atleast 1 checkbox
+</div>

@@ -1,0 +1,12 @@
+.close{
+    float: right;
+    color: #4c4c4c;
+    font-size: 25px;
+    font-family: monospace;
+    margin: 4px;
+    cursor: pointer;
+}
+
+.invoiceRow:nth-child(even){
+    background: #ddf4ff;
+}
